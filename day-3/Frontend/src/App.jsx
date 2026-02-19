@@ -11,7 +11,7 @@ const App = () => {
   })
 
   function fetchNotes() {
-    axios.get('http://localhost:3000/api/notes')
+    axios.get('https://notes-o8tg.onrender.com/api/notes')
       .then((res) => {
         setNotes(res.data.note)
       })
@@ -29,7 +29,7 @@ const App = () => {
   function handelSubmit(e) {
     e.preventDefault()
 
-    axios.post("http://localhost:3000/api/notes", formData)
+    axios.post("https://notes-o8tg.onrender.com/api/notes", formData)
       .then(() => {
         fetchNotes() // refresh notes after adding
         setFormData({
@@ -42,7 +42,7 @@ const App = () => {
   }
 
   function handelDeleteNote(id){
-      axios.delete("http://localhost:3000/api/notes/"+id)
+      axios.delete("https://notes-o8tg.onrender.com/api/notes/"+id)
       .then(res => {
         console.log(res.data);
         fetchNotes()
@@ -51,7 +51,7 @@ const App = () => {
 
   function handelUpdateNote(id){
     const newdes=prompt("Enter New Description:")
-    axios.patch("http://localhost:3000/api/notes/"+id,{
+    axios.patch("https://notes-o8tg.onrender.com/api/notes/"+id,{
       description:newdes
     })
     .then(res => {
